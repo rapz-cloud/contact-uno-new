@@ -28,250 +28,231 @@
             color: #edd6ff;
         }
 
-        /* Enhanced dead stars - lebih banyak */
+        /* Optimized dead stars - menggunakan CSS murni tanpa SVG */
         .dead-stars {
             position: fixed;
             inset: 0;
             background: 
-                radial-gradient(1px 1px at 3% 8%, #ffaaaa, rgba(0,0,0,0)),
-                radial-gradient(1px 1px at 91% 19%, #ff9999, rgba(0,0,0,0)),
-                radial-gradient(2px 2px at 73% 84%, #ff8888, rgba(0,0,0,0)),
-                radial-gradient(2px 2px at 42% 53%, #ff7777, rgba(0,0,0,0)),
-                radial-gradient(1px 1px at 58% 22%, #ffb5b5, rgba(0,0,0,0)),
-                radial-gradient(2px 2px at 12% 91%, #ff6b6b, rgba(0,0,0,0)),
-                radial-gradient(1px 1px at 88% 67%, #ff8a8a, rgba(0,0,0,0)),
-                radial-gradient(2px 2px at 25% 35%, #ff5f5f, rgba(0,0,0,0)),
-                radial-gradient(1px 1px at 67% 42%, #ff9d9d, rgba(0,0,0,0)),
-                radial-gradient(2px 2px at 81% 93%, #ff7a7a, rgba(0,0,0,0)),
-                radial-gradient(1px 1px at 44% 17%, #ffaeae, rgba(0,0,0,0)),
-                radial-gradient(2px 2px at 96% 48%, #ff6363, rgba(0,0,0,0));
+                radial-gradient(1px 1px at 3% 8%, #ffaaaa, transparent 1px),
+                radial-gradient(1px 1px at 91% 19%, #ff9999, transparent 1px),
+                radial-gradient(2px 2px at 73% 84%, #ff8888, transparent 2px),
+                radial-gradient(2px 2px at 42% 53%, #ff7777, transparent 2px),
+                radial-gradient(1px 1px at 58% 22%, #ffb5b5, transparent 1px),
+                radial-gradient(2px 2px at 12% 91%, #ff6b6b, transparent 2px),
+                radial-gradient(1px 1px at 88% 67%, #ff8a8a, transparent 1px),
+                radial-gradient(2px 2px at 25% 35%, #ff5f5f, transparent 2px),
+                radial-gradient(1px 1px at 67% 42%, #ff9d9d, transparent 1px),
+                radial-gradient(2px 2px at 81% 93%, #ff7a7a, transparent 2px),
+                radial-gradient(1px 1px at 44% 17%, #ffaeae, transparent 1px),
+                radial-gradient(2px 2px at 96% 48%, #ff6363, transparent 2px);
             background-repeat: no-repeat;
+            background-size: 200% 200%;
             opacity: 0.5;
             pointer-events: none;
             z-index: 0;
         }
 
-        /* Enhanced red glow - lebih dinamis */
+        /* Optimized red glow - lebih ringan */
         .red-glow {
             position: fixed;
             inset: 0;
             pointer-events: none;
-            z-index: 2;
-            mix-blend-mode: screen;
+            z-index: 1;
+            opacity: 0.5;
         }
         
         .glow-orb {
             position: absolute;
-            width: 800px;
-            height: 800px;
+            width: 600px;
+            height: 600px;
             border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, #ff4d4d30, #8b000020, transparent 80%);
-            filter: blur(100px);
-            animation: floatGlow 20s infinite alternate ease-in-out;
+            background: radial-gradient(circle at 30% 30%, #ff4d4d20, #8b000010, transparent 70%);
+            filter: blur(80px);
+            animation: floatGlow 15s infinite alternate ease-in-out;
+            will-change: transform;
         }
         
         .glow-orb:nth-child(1) {
             top: -200px;
             right: -200px;
-            background: radial-gradient(circle, #ff2b2b40, #4a001030, transparent 85%);
-            animation-duration: 15s;
+            background: radial-gradient(circle, #ff2b2b25, #4a001015, transparent 80%);
         }
         
         .glow-orb:nth-child(2) {
-            bottom: -300px;
+            bottom: -250px;
             left: -150px;
-            background: radial-gradient(circle, #ff3a3a35, #2f001540, transparent 80%);
-            width: 700px;
-            height: 700px;
-            animation-duration: 18s;
-            animation-delay: -5s;
-        }
-        
-        .glow-orb:nth-child(3) {
-            top: 30%;
-            left: 60%;
             width: 500px;
             height: 500px;
-            background: radial-gradient(circle, #ff5e5e25, #61000015, transparent 80%);
-            animation-duration: 22s;
-            animation-delay: -10s;
+            background: radial-gradient(circle, #ff3a3a20, #2f001510, transparent 75%);
+            animation-duration: 18s;
         }
 
         @keyframes floatGlow {
-            0% { transform: translate(0, 0) scale(1); opacity: 0.3; }
-            50% { transform: translate(50px, -50px) scale(1.2); opacity: 0.5; }
-            100% { transform: translate(-50px, 30px) scale(0.9); opacity: 0.3; }
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(30px, -30px) scale(1.1); }
         }
 
-        /* Enhanced blood moon - lebih hidup */
+        /* Optimized blood moon */
         .blood-moon {
             position: fixed;
-            top: 30px;
-            right: 40px;
-            width: 110px;
-            height: 110px;
+            top: 20px;
+            right: 30px;
+            width: 90px;
+            height: 90px;
             border-radius: 50%;
-            background: radial-gradient(circle at 35% 35%, #ffd3d3, #c23b3b 60%, #5c0606);
-            box-shadow: 0 0 150px #ff5e5e, 0 0 250px #c03939;
-            z-index: 3;
-            mix-blend-mode: screen;
-            border: 2px solid #ff9e9e;
+            background: radial-gradient(circle at 35% 35%, #ffd3d3, #b33b3b 70%, #4a0606);
+            box-shadow: 0 0 100px #ff4d4d;
+            z-index: 2;
+            border: 1px solid #ff9e9e;
             animation: moonPulse 4s infinite alternate ease-in-out;
+            will-change: transform, box-shadow;
         }
         
         @keyframes moonPulse {
-            0% { box-shadow: 0 0 150px #ff5e5e, 0 0 250px #c03939; transform: scale(1); }
-            100% { box-shadow: 0 0 200px #ff3737, 0 0 300px #ff0000; transform: scale(1.1); }
+            0% { box-shadow: 0 0 80px #ff4d4d; transform: scale(1); }
+            100% { box-shadow: 0 0 120px #ff1a1a; transform: scale(1.05); }
         }
 
         .blood-moon::after {
             content: '';
             position: absolute;
-            top: 25px;
-            left: 20px;
-            width: 30px;
-            height: 30px;
+            top: 20px;
+            left: 15px;
+            width: 25px;
+            height: 25px;
             background: radial-gradient(circle, #fff5f5, #ffb8b8);
             border-radius: 50%;
-            opacity: 0.5;
+            opacity: 0.4;
             filter: blur(2px);
         }
 
-        /* Enhanced shooting stars - lebih banyak dan bervariasi */
+        /* Optimized shooting stars - lebih sedikit tapi tetap menarik */
         .shooting-star {
             position: fixed;
-            width: 4px;
-            height: 4px;
+            width: 3px;
+            height: 3px;
             background: #ff6b6b;
             border-radius: 50%;
-            box-shadow: 0 0 40px #ff3b3b, 0 0 80px #ff0000;
-            z-index: 4;
+            box-shadow: 0 0 30px #ff3b3b;
+            z-index: 3;
             opacity: 0;
-            animation: shootAcross var(--duration) linear infinite;
-            animation-delay: var(--delay);
+            animation: shootAcross 12s linear infinite;
+            will-change: transform, opacity;
         }
+        
+        .star1 { top: 15%; left: 85%; animation-delay: 0s; }
+        .star2 { top: 70%; left: 10%; animation-delay: 4s; }
+        .star3 { top: 30%; left: 75%; animation-delay: 8s; }
 
         @keyframes shootAcross {
             0% {
                 transform: translate(0, 0) scale(1);
-                opacity: 0.9;
+                opacity: 0.8;
             }
             30% {
-                transform: translate(var(--x1), var(--y1)) scale(0.7);
-                opacity: 0.6;
+                transform: translate(-250px, 180px) scale(0.7);
+                opacity: 0.5;
             }
             70% {
-                transform: translate(var(--x2), var(--y2)) scale(0.3);
-                opacity: 0.3;
+                transform: translate(-500px, 350px) scale(0.3);
+                opacity: 0.2;
             }
             100% {
-                transform: translate(var(--x3), var(--y3)) scale(0);
+                transform: translate(-750px, 550px) scale(0);
                 opacity: 0;
             }
         }
 
-        /* Enhanced petals - lebih banyak dan bervariasi */
+        /* Optimized petals - lebih sedikit tapi efisien */
         .dark-petal-container {
             position: fixed;
             inset: 0;
             pointer-events: none;
-            z-index: 5;
+            z-index: 4;
             overflow: hidden;
         }
 
         .dark-petal {
             position: absolute;
-            background: rgba(180, 30, 40, 0.3);
-            width: 20px;
-            height: 26px;
+            background: rgba(170, 30, 40, 0.25);
+            width: 15px;
+            height: 20px;
             border-radius: 70% 30% 60% 40% / 50% 40% 60% 50%;
-            border: 1px solid #ff6b6b30;
-            box-shadow: 0 0 20px #ff3b3b, 0 0 40px #8b0000;
-            animation: fallDark linear infinite;
-            filter: blur(1px);
+            border: 1px solid #ff6b6b20;
+            box-shadow: 0 0 15px #ff3b3b;
+            animation: fallDark 15s linear infinite;
             will-change: transform, opacity;
         }
 
         @keyframes fallDark {
             0% {
                 top: -10%;
-                transform: rotate(0deg) translateX(0) scale(1);
-                opacity: 0.8;
-            }
-            25% {
-                transform: rotate(120deg) translateX(30px) scale(1.1);
+                transform: rotate(0deg) translateX(0);
+                opacity: 0.6;
             }
             50% {
-                transform: rotate(240deg) translateX(-30px) scale(0.9);
-            }
-            75% {
-                transform: rotate(360deg) translateX(20px) scale(1);
+                transform: rotate(180deg) translateX(20px);
             }
             100% {
                 top: 110%;
-                transform: rotate(480deg) translateX(-30px) scale(0.5);
-                opacity: 0.2;
+                transform: rotate(360deg) translateX(-20px);
+                opacity: 0.1;
             }
         }
 
-        /* Main card - lebih elegan */
+        /* Main card - lebih ringan animasinya */
         .glass-card {
             position: relative;
-            z-index: 20;
-            max-width: 580px;
+            z-index: 10;
+            max-width: 560px;
             width: 100%;
-            background: rgba(8, 0, 12, 0.5);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            background: rgba(8, 0, 12, 0.6);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 80, 80, 0.3);
             border-radius: 48px;
-            padding: 2.5rem 2rem 2.8rem;
-            box-shadow: 0 40px 80px -20px #4f0000, 0 0 0 1px rgba(255, 60, 60, 0.2) inset, 0 0 80px #ff3333;
+            padding: 2.2rem 2rem 2.5rem;
+            box-shadow: 0 30px 60px -15px #4f0000, 0 0 0 1px rgba(255, 60, 60, 0.2) inset, 0 0 60px #ff3333;
             text-align: center;
-            animation: cardFloat 6s infinite alternate ease-in-out;
+            animation: cardFloat 5s infinite alternate ease-in-out;
+            will-change: transform;
         }
 
         @keyframes cardFloat {
-            0% { transform: translateY(0); box-shadow: 0 40px 80px -20px #4f0000, 0 0 80px #ff3333; }
-            100% { transform: translateY(-10px); box-shadow: 0 50px 90px -15px #6b0000, 0 0 100px #ff4d4d; }
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-5px); }
         }
 
         .main-title {
-            font-size: clamp(2.8rem, 10vw, 4.5rem);
+            font-size: clamp(2.5rem, 8vw, 4rem);
             font-weight: 300;
-            letter-spacing: 10px;
+            letter-spacing: 8px;
             text-transform: uppercase;
             color: #fff0f5;
-            text-shadow: 0 0 20px #ff6b6b, 0 0 40px #c03939, 0 0 80px #8b0000;
-            margin-bottom: 1rem;
+            text-shadow: 0 0 15px #ff6b6b, 0 0 30px #c03939;
+            margin-bottom: 0.8rem;
             line-height: 1.1;
-            animation: titleGlow 3s infinite alternate;
         }
 
-        @keyframes titleGlow {
-            0% { text-shadow: 0 0 20px #ff6b6b, 0 0 40px #c03939, 0 0 80px #8b0000; }
-            100% { text-shadow: 0 0 30px #ff8a8a, 0 0 60px #ff4d4d, 0 0 100px #ff1a1a; }
-        }
-
-        /* Logo ring dengan animasi lebih hidup */
+        /* Logo ring - lebih ringan */
         .logo-ring {
-            margin: 2rem auto 2.2rem auto;
-            width: 140px;
-            height: 140px;
+            margin: 1.8rem auto 2rem auto;
+            width: 130px;
+            height: 130px;
             border-radius: 50%;
             background: #0a000a;
-            box-shadow: 0 0 70px #ff4d4d, 0 0 140px #b30202, 0 0 40px #ffaaaa inset;
+            box-shadow: 0 0 50px #ff4d4d, 0 0 100px #b30202, 0 0 30px #ffaaaa inset;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 3px solid #ff8a8a;
-            padding: 6px;
-            animation: ringPulse 2.5s infinite alternate ease-in-out;
+            border: 2px solid #ff8a8a;
+            padding: 5px;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
         }
 
-        @keyframes ringPulse {
-            0% { box-shadow: 0 0 70px #ff4d4d, 0 0 140px #b30202, 0 0 40px #ffaaaa inset; border-color: #ff8a8a; transform: scale(1); }
-            100% { box-shadow: 0 0 100px #ff6b6b, 0 0 200px #ff1a1a, 0 0 60px #ffd4d4 inset; border-color: #ffb5b5; transform: scale(1.05); }
+        .logo-ring:hover {
+            box-shadow: 0 0 70px #ff6b6b, 0 0 140px #ff1a1a;
+            transform: scale(1.02);
         }
 
         .logo-ring img {
@@ -281,168 +262,111 @@
             border-radius: 50%;
             display: block;
             background: #1e001e;
-            border: 2px solid #ffb5b5;
+            border: 1px solid #ffb5b5;
             transition: transform 0.5s ease;
         }
 
         .logo-ring:hover img {
-            transform: rotate(360deg);
-            transition: transform 1s ease;
+            transform: rotate(180deg);
         }
 
-        /* Contact label dengan efek lebih */
+        /* Contact label */
         .contact-label {
-            margin: 2.2rem 0 1.5rem 0;
+            margin: 2rem 0 1.3rem 0;
         }
 
         .contact-label span {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 200;
             text-transform: uppercase;
-            letter-spacing: 6px;
+            letter-spacing: 5px;
             color: #ffd4d4;
-            text-shadow: 0 0 15px #ff4d4d;
+            text-shadow: 0 0 12px #ff4d4d;
             background: rgba(60, 0, 0, 0.4);
-            padding: 0.3rem 2rem;
+            padding: 0.3rem 1.8rem;
             border-radius: 60px;
-            backdrop-filter: blur(8px);
+            backdrop-filter: blur(5px);
             border: 1px solid #ff6b6b;
             display: inline-block;
-            animation: labelPulse 3s infinite alternate;
         }
 
-        @keyframes labelPulse {
-            0% { opacity: 0.9; letter-spacing: 6px; }
-            100% { opacity: 1; letter-spacing: 8px; }
-        }
-
-        /* Button grid - minimalis tapi bervariasi */
+        /* Button grid - minimalis tapi tetap variatif */
         .button-grid {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
-            margin-bottom: 2.5rem;
+            gap: 0.9rem;
+            margin-bottom: 2rem;
         }
 
-        /* Variasi tombol dengan style berbeda */
         .social-btn {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 1rem;
-            padding: 1rem 1.5rem;
+            gap: 0.8rem;
+            padding: 0.9rem 1.2rem;
             background: rgba(15, 0, 10, 0.5);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-radius: 50px;
-            font-size: 1.1rem;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 40px;
+            font-size: 1rem;
             font-weight: 300;
             color: #fff0f5;
             text-decoration: none;
-            letter-spacing: 0.5px;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            letter-spacing: 0.3px;
+            transition: all 0.2s ease;
             position: relative;
             overflow: hidden;
         }
 
-        /* Variasi border dan shadow tiap tombol */
-        .btn-wa-channel {
-            border: 1px solid #ff8a8a;
-            box-shadow: 0 4px 15px -5px #ff4d4d, 0 0 10px #ff8a8a inset;
-        }
-        .btn-wa {
-            border: 1px solid #ff7a7a;
-            box-shadow: 0 4px 15px -5px #ff3b3b, 0 0 10px #ff7a7a inset;
-        }
-        .btn-telegram {
-            border: 1px dashed #ff9e9e;
-            box-shadow: 0 4px 15px -5px #ff6b6b;
-        }
-        .btn-tiktok {
-            border: 1px solid #ff8a8a;
-            box-shadow: 0 4px 15px -5px #ff4d4d, 0 0 15px #ff4d4d inset;
-            background: rgba(30, 0, 15, 0.6);
-        }
-        .btn-instagram {
-            border: 2px dotted #ffb5b5;
-            box-shadow: 0 4px 15px -5px #ff8a8a;
-        }
-        .btn-discord {
-            border: 1px solid #ff9e9e;
-            box-shadow: 0 4px 15px -5px #ff6b6b, 0 0 5px #ffb5b5 inset;
-            background: rgba(20, 0, 12, 0.5);
-        }
-        .btn-github {
-            border: 1px double #ff8a8a;
-            box-shadow: 0 4px 15px -5px #ff4d4d;
-        }
+        /* Variasi border yang lebih subtle */
+        .btn-wa-channel { border: 1px solid #ff8a8a; }
+        .btn-wa { border: 1px solid #ff7a7a; }
+        .btn-telegram { border: 1px dashed #ff9e9e; }
+        .btn-tiktok { border: 1px solid #ff8a8a; background: rgba(30, 0, 15, 0.6); }
+        .btn-instagram { border: 1px dotted #ffb5b5; }
+        .btn-discord { border: 1px solid #ff9e9e; }
+        .btn-wa-group { border: 1px double #ff8a8a; }
 
         /* Icon styling */
         .social-btn i {
             font-style: normal;
-            font-size: 1.8rem;
-            filter: drop-shadow(0 0 8px #ff8a8a);
-            transition: all 0.3s ease;
+            font-size: 1.6rem;
+            filter: drop-shadow(0 0 5px #ff8a8a);
+            transition: transform 0.2s ease;
         }
 
-        /* Efek hover yang lebih hidup */
+        /* Hover effect sederhana */
         .social-btn:hover {
-            transform: translateY(-5px) scale(1.02);
+            transform: translateY(-3px);
             background: rgba(100, 0, 30, 0.7);
             border-color: #ffb5b5;
-            box-shadow: 0 15px 30px -8px #ff4d4d, 0 0 25px #ff4d4d;
+            box-shadow: 0 8px 20px -8px #ff4d4d;
         }
 
         .social-btn:hover i {
-            transform: rotate(360deg) scale(1.2);
-            filter: drop-shadow(0 0 15px #ffb5b5);
+            transform: scale(1.1);
         }
 
-        /* Efek ripple pada hover */
-        .social-btn::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: radial-gradient(circle, #ff8a8a80, transparent);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s ease, height 0.6s ease;
-        }
-
-        .social-btn:hover::after {
-            width: 300px;
-            height: 300px;
-            opacity: 0;
-        }
-
-        /* Cosmic note dengan efek berkedip */
+        /* Cosmic note */
         .cosmic-note {
             margin-top: 1rem;
-            font-size: 1rem;
+            font-size: 0.9rem;
             color: #ffb5b5;
             opacity: 0.9;
-            letter-spacing: 3px;
-            border-top: 1px solid #ff6b6b50;
-            padding-top: 1.5rem;
+            letter-spacing: 2px;
+            border-top: 1px solid #ff6b6b30;
+            padding-top: 1.2rem;
             font-weight: 300;
-            text-shadow: 0 0 15px #ff3b3b;
-            animation: noteFlicker 2.5s infinite alternate;
-        }
-
-        @keyframes noteFlicker {
-            0% { opacity: 0.7; text-shadow: 0 0 15px #ff3b3b; }
-            100% { opacity: 1; text-shadow: 0 0 25px #ff8a8a, 0 0 10px #ff0000; }
+            text-shadow: 0 0 10px #ff3b3b;
         }
 
         /* Responsive */
         @media (max-width: 450px) {
-            .glass-card { padding: 1.8rem 1.2rem; border-radius: 36px; }
+            .glass-card { padding: 1.5rem 1.2rem; border-radius: 32px; }
             .main-title { letter-spacing: 4px; }
-            .blood-moon { width: 80px; height: 80px; top: 15px; right: 15px; }
+            .blood-moon { width: 70px; height: 70px; top: 10px; right: 15px; }
             .logo-ring { width: 110px; height: 110px; }
+            .social-btn { padding: 0.8rem 1rem; font-size: 0.95rem; }
         }
     </style>
 </head>
@@ -450,9 +374,8 @@
     <!-- Dead stars background -->
     <div class="dead-stars"></div>
 
-    <!-- Dynamic red glow orbs -->
+    <!-- Red glow orbs (lebih sedikit) -->
     <div class="red-glow">
-        <div class="glow-orb"></div>
         <div class="glow-orb"></div>
         <div class="glow-orb"></div>
     </div>
@@ -460,13 +383,12 @@
     <!-- Blood moon -->
     <div class="blood-moon"></div>
 
-    <!-- Shooting stars (dynamic) -->
-    <div class="shooting-star" style="--duration: 12s; --delay: 0s; --x1: -200px; --y1: 150px; --x2: -450px; --y2: 300px; --x3: -700px; --y3: 500px; top: 10%; left: 90%;"></div>
-    <div class="shooting-star" style="--duration: 15s; --delay: 2s; --x1: 250px; --y1: -180px; --x2: 500px; --y2: -350px; --x3: 800px; --y3: -550px; top: 70%; left: 10%;"></div>
-    <div class="shooting-star" style="--duration: 18s; --delay: 5s; --x1: -300px; --y1: 200px; --x2: -600px; --y2: 400px; --x3: -900px; --y3: 650px; top: 30%; left: 80%;"></div>
-    <div class="shooting-star" style="--duration: 14s; --delay: 8s; --x1: 150px; --y1: -120px; --x2: 350px; --y2: -280px; --x3: 600px; --y3: -450px; top: 50%; left: 20%;"></div>
+    <!-- Shooting stars (3 saja) -->
+    <div class="shooting-star star1"></div>
+    <div class="shooting-star star2"></div>
+    <div class="shooting-star star3"></div>
 
-    <!-- Petals container -->
+    <!-- Petals container (dengan jumlah lebih sedikit) -->
     <div class="dark-petal-container" id="dark-petal-container"></div>
 
     <!-- Main card -->
@@ -488,21 +410,20 @@
             <a href="https://wa.me/6283172299901" target="_blank" rel="noopener" class="social-btn btn-wa">
                 <i>✺</i> WhatsApp
             </a>
+            <a href="https://chat.whatsapp.com/DnuLHL0T20U3KCSJ7ds649?mode=gi_t" target="_blank" rel="noopener" class="social-btn btn-wa-group">
+                <i>👥</i> Grup WA
+            </a>
             <a href="https://t.me/rapzzxtamz" target="_blank" rel="noopener" class="social-btn btn-telegram">
                 <i>☯</i> Telegram
+            </a>
+            <a href="https://discord.gg/Msg57Etvz" target="_blank" rel="noopener" class="social-btn btn-discord">
+                <i>◈</i> Discord
             </a>
             <a href="https://www.tiktok.com/@style.fomo34" target="_blank" rel="noopener" class="social-btn btn-tiktok">
                 <i>⛧</i> TikTok
             </a>
             <a href="https://www.instagram.com/uno.onee1" target="_blank" rel="noopener" class="social-btn btn-instagram">
                 <i>ⵔ</i> Instagram
-            </a>
-            <!-- Tambahan 2 tombol baru untuk variasi -->
-            <a href="#" target="_blank" rel="noopener" class="social-btn btn-discord">
-                <i>◈</i> Discord
-            </a>
-            <a href="#" target="_blank" rel="noopener" class="social-btn btn-github">
-                <i>⌘</i> GitHub
             </a>
         </div>
 
@@ -513,49 +434,51 @@
 
     <script>
         (function() {
-            // Generate petals
+            // Generate petals dengan jumlah lebih sedikit (60) untuk performa lebih baik
             const container = document.getElementById('dark-petal-container');
             if (container) {
-                for (let i = 0; i < 120; i++) { // Lebih banyak petals
+                // Kosongkan container dulu
+                container.innerHTML = '';
+                
+                for (let i = 0; i < 60; i++) {
                     const petal = document.createElement('div');
                     petal.classList.add('dark-petal');
                     
-                    const size = 12 + Math.floor(Math.random() * 22);
+                    // Ukuran bervariasi tapi tidak ekstrem
+                    const size = 10 + Math.floor(Math.random() * 15);
                     petal.style.width = size + 'px';
                     petal.style.height = (size * 1.3) + 'px';
                     petal.style.left = Math.random() * 100 + '%';
-                    petal.style.animationDuration = (8 + Math.random() * 20) + 's';
-                    petal.style.animationDelay = (Math.random() * -30) + 's';
                     
-                    // Variasi opacity dan warna
-                    const opacity = 0.2 + Math.random() * 0.5;
-                    petal.style.opacity = opacity;
+                    // Variasi durasi dan delay
+                    const duration = 10 + Math.random() * 15;
+                    petal.style.animationDuration = duration + 's';
+                    petal.style.animationDelay = (Math.random() * -20) + 's';
                     
-                    if (i % 3 === 0) {
-                        petal.style.background = 'rgba(200, 40, 50, 0.4)';
-                        petal.style.boxShadow = '0 0 25px #ff4d4d';
-                    } else if (i % 3 === 1) {
-                        petal.style.background = 'rgba(150, 20, 30, 0.5)';
-                        petal.style.borderColor = '#ff8a8a60';
+                    // Variasi opacity
+                    petal.style.opacity = 0.2 + Math.random() * 0.3;
+                    
+                    // Variasi warna untuk beberapa petal
+                    if (i % 4 === 0) {
+                        petal.style.background = 'rgba(180, 30, 40, 0.3)';
+                        petal.style.boxShadow = '0 0 20px #ff4d4d';
                     }
                     
-                    petal.style.filter = `blur(${Math.random() * 2}px)`;
                     container.appendChild(petal);
                 }
             }
 
-            // Tambahkan interaksi pada tombol
-            const buttons = document.querySelectorAll('.social-btn');
-            buttons.forEach(btn => {
-                btn.addEventListener('mousemove', (e) => {
-                    const rect = btn.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    
-                    btn.style.setProperty('--mouse-x', `${x}px`);
-                    btn.style.setProperty('--mouse-y', `${y}px`);
+            // Optimasi performa dengan mengurangi efek pada mobile
+            if (window.innerWidth <= 768) {
+                // Kurangi jumlah glow orbs di mobile
+                const orbs = document.querySelectorAll('.glow-orb');
+                orbs.forEach((orb, index) => {
+                    if (index > 0) orb.style.opacity = '0.3';
                 });
-            });
+                
+                // Matikan animasi blood moon di mobile untuk performa
+                document.querySelector('.blood-moon').style.animation = 'none';
+            }
         })();
     </script>
 </body>
